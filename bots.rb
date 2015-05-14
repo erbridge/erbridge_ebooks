@@ -47,7 +47,7 @@ class Bot < Ebooks::Bot
   def on_startup
     load_model!
 
-    scheduler.every '24h' do
+    scheduler.cron '0 0 * * *' do
       tweet(model.make_statement)
     end
   end
